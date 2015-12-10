@@ -1,0 +1,173 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tumeo's Emoji Parser</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+
+      * ::selection{
+          background: #000;
+          color: #fff;
+      }
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        background-color: #f6f5f5;
+        width: 300px;
+        cursor:default;
+      }
+      h2{
+        color: #63c;
+        font-family: consolas, monospace;
+      }
+      input[type="ward"] {
+        font-family: consolas, monospace;
+        border: none;
+        text-align: center;
+        height: 30px;
+        width: 70%;
+      }input[type="ward"]:focus, textarea:focus{
+        border: solid 1px #63c;
+        outline: none;
+      }
+      textarea{
+        display: none;
+        resize: none;
+      }
+      div#window, div.refresh{
+        text-align:center;
+      }
+      div.refresh{
+        position: absolute;
+        top: 1px;
+        right: 1px;
+      }
+      div.refresh a{
+        padding: 3px;
+      }
+	  p{
+        text-align: center;
+        width: auto;
+	  }
+      a{
+        color:white;
+        text-decoration:none;
+      }
+      a,input,label{
+        cursor: pointer;
+      }
+
+	  .corolho{
+    	vertical-align:top;
+    	text-align: left;
+    		/*width:180px;*/
+        display:inline-block;
+        padding: 6px 12px;
+        border-top:1px solid #63c;
+        color:#fff;
+        border-radius:4px;
+        box-shadow:rgba(0,0,0,1) 0 1px 0;
+        text-shadow:rgba(0,0,0,.4) 0 1px 0;
+        text-decoration:none;
+        background:#63c;
+        background-repeat:no-repeat;
+        background-image:-webkit-linear-gradient(
+            top left,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.2) 37%,
+            rgba(255, 255, 255, 0.8) 45%,
+            rgba(255, 255, 255, 0.0) 50%
+        ),
+        -webkit-linear-gradient(
+            #8861d5, #63c
+        );
+        background-image:-moz-linear-gradient(
+            0 0,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.2) 37%,
+            rgba(255, 255, 255, 0.8) 45%,
+            rgba(255, 255, 255, 0.0) 50%
+        ),
+        -moz-linear-gradient(
+            #8861d5, #63c
+        );
+        background-image:-o-linear-gradient(
+            0 0,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.2) 37%,
+            rgba(255, 255, 255, 0.8) 45%,
+            rgba(255, 255, 255, 0.0) 50%
+        ),
+        -o-linear-gradient(
+            #8861d5, #63c
+        );
+        background-image:linear-gradient(
+            0 0,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.2) 37%,
+            rgba(255, 255, 255, 0.8) 45%,
+            rgba(255, 255, 255, 0.0) 50%
+        ),
+
+        );
+        background-position:-100px -100px, 0 0;
+        -moz-background-size:250% 250%, 100% 100%;
+             background-size:250% 250%, 100% 100%;
+        -webkit-transition:background-position 0s ease;
+           -moz-transition:background-position 0s ease;
+             -o-transition:background-position 0s ease;
+                transition:background-position 0s ease;
+    }
+
+    .corolho:hover {
+        color:#fff;
+    	box-shadow: 0px 1px 5px 1px #63c;
+        background-position:0 0, 0 0;
+        -webkit-transition-duration:0.5s;
+           -moz-transition-duration:0.5s;
+                transition-duration:0.5s;
+    }
+    </style>
+
+  </head>
+  <body>
+        <datalist id="ward">
+        </datalist>
+
+	<div id="window">
+        <h2>Emoji Parser</h2>
+
+	    <p>
+            <p>
+                <input required list="ward" type="ward" name="ward-term" placeholder="Digite uma palavra-chave">
+            </p>
+
+            <p>
+                <a title="Salvar" class="corolho" name="save">
+                    <i class="fa fa-floppy-o"></i>
+                </a>
+                <a title="Buscar" class="corolho" name="query">
+                    <i class="fa fa-search"></i>
+                </a>
+                <a title="Deletar" class="corolho" name="delete">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+                <a title="Backup" class="corolho" name="backup">
+                    <i class="fa fa-server"></i>
+                </a>
+            </p>
+            <p>
+                <textarea readonly name="backup" rows="8" cols="40"></textarea>
+            </p>
+	    </p>
+    </div>
+
+    <div class="refresh">
+        <a class="corolho" name="refresh"><i class="fa fa-refresh"></i></a>
+        <a class="corolho" name="close"><i class="fa fa-times"></i></a>
+    </div>
+
+  </body>
+  <script src="../scripts/ward.js" charset="utf-8"></script>
+  <script src="../scripts/popup.js" charset="utf-8"></script>
+</html>

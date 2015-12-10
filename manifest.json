@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "Emoji Parser",
+  "author": "William Tuméo",
+  "description": "ASCII emoji parser",
+  "version": "1.0",
+  "icons": { "16": "assets/icon16.png",
+           "48": "assets/icon48.png",
+          "128": "assets/icon128.png" },
+  "browser_action": {
+    "default_icon": "assets/icon.png",
+    "default_popup": "pages/popup.html"
+  },
+  "permissions": [
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["scripts/emoji_data.js","scripts/jquery.min.js","scripts/emoji_parser.js"]
+    }
+  ],
+  "omnibox": {
+    "keyword": "emoji"
+  },
+  "homepage_url": "https://github.com/williamd1k0"
+}
